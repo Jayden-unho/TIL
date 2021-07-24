@@ -148,15 +148,15 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
 * **Python**
   * [BaekJoon](CodeTest/Python/BaekJoon)
-  * Programmers
-  * SWEA
+  * [Programmers](CodeTest/Python/Programmers)
+  * [SWEA](CodeTest/Python/SWEA)
 
  
 
 * **Java**
-  * BaekJoon
-  * Programmers
-  * SWEA
+  * [BaekJoon](CodeTest/Java/BaekJoon)
+  * [Programmers](CodeTest/Java/Programmers)
+  * [SWEA](CodeTest/Java/SWEA)
 
  
 
