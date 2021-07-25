@@ -38,7 +38,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
  
 
-* [**Algorithm\_&\_Solution**](#algorithm&solution)
+* [**Algorithm\_&\_Solution**](#algorithm-&-solution)
   * **Algorithm**
   * **Solution**
 
@@ -64,7 +64,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
 ## Detail (세부사항)
 
-### Algorithm\_&\_Solution
+### Algorithm & Solution
 
 `Algorithm` 은 알고리즘 학습 또는 코딩테스트 문제 해결 중 학습하게 된 내용을 포함하고 있습니다.
 
