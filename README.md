@@ -38,23 +38,23 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
  
 
-### [**Algorithm\_&\_Solution**](#algorithm&solution)
+* [**Algorithm\_&\_Solution**](#algorithm&solution)
+  * **Algorithm**
+  * **Solution**
 
-### [**DataStructure**](#datastrucure)
+* [**DataStructure**](#datastructure)
 
-### [**Language**](#language)
+* [**Language**](#language)
+  * **Python**
+  * **Java**
+  * **Git**
+  * **Vim**
 
-* **Python**
-* **Java**
-* **Git**
-* **Vim**
+* [**CodeTest**](#codetest)
+  * **Python**
+  * **Java**
 
-### [**CodeTest**](#codetest)
-
-* **Python**
-* **Java**
-
-### [**Error_Solution**](#error_solution)
+* [**Error_Solution**](#error_solution)
 
  
 
@@ -74,13 +74,13 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
 #### Algorithm
 
-* 
+* [정렬 알고리즘](Algorithm_&_Solution/Algorithm/Sort_Algorithm.md)
 
  
 
 #### Solution
 
-* [2차원 배열 시계방향으로 접근하여 숫자 입력하기 (SWEA_달팽이 숫자)](Algorithm/SWEA_D2_1954.md)
+* [2차원 배열 시계방향으로 접근하여 숫자 입력하기 (SWEA_달팽이 숫자)](Algorithm_&_Solution/Solution/SWEA_D2_1954.md)
 
  
 
