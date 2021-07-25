@@ -38,7 +38,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
  
 
-* [**Algorithm\_&\_Solution**](#algorithm&solution)
+* [**Algorithm\_&\_Solution**](#algorithm_&_solution)
   * **Algorithm**
   * **Solution**
 
