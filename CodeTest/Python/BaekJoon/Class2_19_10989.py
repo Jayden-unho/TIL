@@ -1,16 +1,15 @@
 import sys
 
-number = int(sys.stdin.readline())
-answer = list([int(sys.stdin.readline())])
-tmp_answer = []
+n = int(sys.stdin.readline())
+num_dict = {}
 
-while number:
-    end_index = len(answer)
-    in_num = int(sys.stdin.readline())
-    
-    for i in range(end_index):
-        if answer[i] > in_num:
-            tmp_answer = answer.copy()
-            answer = list([in_num])
-            answer
-    number -= 1
+for i in range(1, 10001):
+    num_dict[i] = 0
+
+for _ in range(n):
+    num = int(sys.stdin.readline())
+    num_dict[num] += 1
+
+for k,v in num_dict.items():
+    for _ in range(v):
+        print(k)
