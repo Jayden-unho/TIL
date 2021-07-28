@@ -40,9 +40,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
 * [**Algorithm\_&\_Solution**](#algorithm--solution)
   * **Algorithm**
-  * **Solution**
-
-* [**DataStructure**](#datastructure)
+  * **Solution
 
 * [**Language**](#language)
   * **Python**
@@ -75,6 +73,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 #### Algorithm
 
 * [정렬 알고리즘](Algorithm_&_Solution/Algorithm/Sort_Algorithm.md)
+* [이진 탐색 알고리즘](Algorithm_&_Solution/Algorithm/Binary_Search.md)
 
  
 
@@ -82,15 +81,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
 * [2차원 배열 시계방향으로 접근하여 숫자 입력하기 (SWEA_달팽이 숫자)](Algorithm_&_Solution/Solution/SWEA_D2_1954.md)
 
- 
-
----
-
-### DataStructure
-
- 
-
- 
+  
 
 ---
 

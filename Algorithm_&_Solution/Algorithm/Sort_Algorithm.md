@@ -1,4 +1,4 @@
-Sort Algorithm (정렬 알고리즘)
+# Sort Algorithm (정렬 알고리즘)
 
 ## 종류
 
