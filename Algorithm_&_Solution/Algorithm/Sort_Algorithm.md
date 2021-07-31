@@ -48,11 +48,11 @@
   num_list = [3, 5, 4, 6, 1, 2, 7]
   
   for i in range(len(num_list)-1):
-      minIndex = i
+      min_idx = i
       for j in range(i+1, len(num_list)):
-          if num_list[minIndex] > num_list[j]:
-              minIndex = j
-      num_list[i], num_list[minIndex] = num_list[minIndex], num_list[i]
+          if num_list[i] > num_list[j]:
+              min_idx = j
+      num_list[i], num_list[min_idx] = num_list[min_idx], num_list[i]
   ```
 
  
@@ -97,13 +97,21 @@
 ```python
 num_list = [0, 3, 5, 4, 6, 7, 1, 2]
 
+#1.
 for i in range(1, len(num_list)):
-    tmp_value = num_list[i]
-    for j in range(i-1, -2, -1):
-        if tmp_value < num_list[j]:
-            num_list[j+1] = num_list[j]
+    value = num_list[i]
+    j = i-1
+    while num_list[j] > value and j >= 0:
+        num_list[j+1] = num_list[j]
+        j -= 1
+    num_list[j+1] = value
+    
+#2. 거품 정렬 개념과 살짝 섞임
+for i in range(1, len(num_list)):
+    for j in range(i, 0, -1):
+        if num_list[j] < num_list[j-1]:
+            num_list[j], num_list[j-1] = num_list[j-1], num_list[j]
         else:
-            num_list[j+1] = tmp_value
             break
 ```
 
