@@ -108,6 +108,8 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
   * [객체지향 (클래스상속)](Language/Python/OOD.md)
 * 모듈
   * Pandas
+    * [각종 속성 및 메서드](Language/Python/Pandas/Attribute_Method.md)
+    * [시리즈 여러개를 연산하여 새로운 열 추가하기](Language/Python/Pandas/Series_sum.md)
 
  
 
