@@ -9,6 +9,7 @@
   * Java
   * JavaScript (학습 중)
 
+* API()
 * **시작 일시** : 2021.06.30.수 ~
 * **작성 프로그램** : Typora
 
@@ -40,7 +41,7 @@ p.s. <u>SSAFY 학습과정은 보안정책상 GitLab에서 private로 보관</u>
 
 * [**Algorithm\_&\_Solution**](#algorithm--solution)
   * **Algorithm**
-  * **Solution
+  * **Solution**
 
 * [**Language**](#language)
   * **Python**
