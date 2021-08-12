@@ -3,26 +3,28 @@ import sys
 
 n = int(sys.stdin.readline())
 m = int(sys.stdin.readline())
-in_str = sys.stdin.readline().strip()
+in_str = sys.stdin.readline().strip() + '.'
 
-pn = ('IO'*n) + 'I'
-pn_len = len(pn)
-cnt = 0
+stack = []
+answer = 0
 
-sign = False
-idx = 0
-while idx <= (m - pn_len):
-    if not sign and pn == in_str[idx : idx+pn_len]:
-        idx += pn_len
-        sign = True
-        cnt += 1
-    elif sign and in_str[idx : idx+2] == 'OI':
-        idx += 2
-        cnt += 1
-    elif sign:
-        sign = False
+for c in in_str:
+    if stack == []:
+        if c == 'I':
+            stack.append(c)
     else:
-        sign = False
-        idx += 1
+        if c == 'O' and stack[-1] == 'I':
+            stack.append(c)
+        elif c == 'I' and stack[-1] == 'O':
+            stack.append(c)
+        else:
+            tmp = (len(stack)-(2*n+1))//2 + 1
+            if tmp > 0:
+                answer += tmp
+            stack.clear()
+            if c == 'I':
+                stack.append(c)
 
-print(cnt)
+
+
+print(answer)
