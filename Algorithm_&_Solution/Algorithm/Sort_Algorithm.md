@@ -2,11 +2,11 @@
 
 ## 종류
 
-* [선택 정렬 (Selection Sort)](#선택-정렬-(Selection-Sort))
-* [삽입 정렬 (Insertion Sort)](#삽입-정렬-(Insertion-Sort))
-
-* [거품 정렬 (Bubble Sort)](#거품-정렬-(Bubble-Sort))
-* [카운팅 정렬 (Counting Sort)](#카운팅-정렬-(Counting-Sort))
+* [선택 정렬 (Selection Sort)](#선택-정렬-(selection-sort))
+* [삽입 정렬 (Insertion Sort)](#삽입-정렬-(insertion-sort))
+* [버블 정렬 (Bubble Sort)](#버블-정렬-(bubble-sort))
+* [카운팅 정렬 (Counting Sort)](#카운팅-정렬-(counting-sort))
+* [퀵 정렬 (Quick Sort)](#퀵-정렬-(quick-sort))
 
  <br>
 
@@ -20,7 +20,7 @@
 
 * 로직
 
-  ![Selection_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/Selection_Sort.png)
+  ![Selection_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/selection_sort.gif)
 
   1. 정렬 되지 않은 인덱스의 맨 앞에서부터 이를 포함한 그 이후의 배열값 중 가장 작은 값을 찾아간다.
   2. 가장 작은 값을 찾으면, 그 값을 현재 인덱스의 값과 바꾼다
@@ -36,7 +36,7 @@
 
 * 안정성
 
-  없음
+  불안정
 
  <br>
 
@@ -71,7 +71,7 @@
 
 * 로직
 
-  ![Insertion_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/Insertion_Sort.png)
+  ![Insertion_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/insertion_sort.gif)
 
   1. 삽입정렬은 두번째 인덱스부터 시작함. 현재 인덱스는 별도의 변수에 저장해주고, 비교 인덱스를 현재 인덱스-1 로 설정한다.
   2. 별도로 저장해 둔 삽입을 위한 변수와 비교 인덱스의 배열 값을 비교
@@ -88,7 +88,7 @@
 
 * 안정성
 
-  일반적으로 있음
+  안정
 
  <br>
 
@@ -119,7 +119,7 @@ for i in range(1, len(num_list)):
 
 ---
 
-### 거품 정렬 (Bubble Sort)
+### 버블 정렬 (Bubble Sort)
 
 거품 정렬은 두 인접한 원소를 검사하여 정렬하는 방식이다. 시간 복잡도가 O(n^2)로 상당히 느리지만, 코드가 단순하기 때문에 자주 사용된다. 양방향으로 번갈아 수행하면 칵테일 정렬이 된다.
 
@@ -127,7 +127,7 @@ for i in range(1, len(num_list)):
 
 * 로직
 
-  ![Bubble_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/Bubble_Sort.png)
+  ![Bubble_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/bubble_sort.gif)
 
   1. 두개의 인덱스가 하나의 쌍이 되어 움직인다. 현재 인덱스 값과 바로 이전의 인덱스 값을 비교한다.
   2. 만약 이전 인덱스가 더 크면, 현재 인덱스와 바꿔준다.
@@ -144,7 +144,7 @@ for i in range(1, len(num_list)):
 
 * 안정성
 
-  일반적으로 있음
+  안정
 
  <br>
 
@@ -172,17 +172,56 @@ for i in range(length):
 
 * 로직
 
+  ![](../../Image.assets/Algorithm_&_Solution/Algorithm/counting_sort.gif)
+
 <br>
 
 * 시간복잡도
+
+  O(n+k)
 
 <br>
 
 * 안정성
 
+  불안정
+
 <br>
 
 * 구현
+
+  ```python
+  def counting_sort(li):
+      sorted_list = [0] * len(li)                     # 정렬된 리스트를 담을 변수
+      max_value = li[0]                               # 리스트에서 최고값을 찾음
+      min_value = li[0]                               # 리스트에서 최솟값을 찾음
+  
+      for n in li:
+          if max_value < n:
+              max_value = n
+          elif min_value > n:
+              min_value = n
+  
+      cnt_list = [0] * (max_value + 1 - min_value)        # 리스트에서 최고값의 크기 + 1 리스트 생성
+  
+      for n in li:                                        # 해당 숫자의 갯수를 세어서 리스트에 저장
+          cnt_list[n - min_value] += 1
+  
+      for idx in range(1, len(cnt_list)):                 # 누적합으로 저장
+          cnt_list[idx] = cnt_list[idx-1] + cnt_list[idx]
+  
+      for n in li:                                        # 새로운 리스트에 정렬된 리스트 저장
+          sorted_list[cnt_list[n-min_value]-1] = n
+          cnt_list[n-min_value] -= 1
+  
+      return sorted_list
+  ```
+
+<br>
+
+---
+
+### 퀵 정렬 (Quick Sort)
 
 <br>
 
