@@ -1,2 +1,0 @@
-# BFS_DFS Algorithm
-
