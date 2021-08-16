@@ -8,46 +8,46 @@
 
 
 def solution(s):
-    possible_len = []
-    answer = len(s)
+    answer = len(s)             # 압축이 안되면 기존 문자열 길이가 가장 짧으므로
 
-    for i in range(1, 9):
-        if answer%i == 0:                       # 나누어 떨어지면 해당 길이만큼 패턴을 찾아볼수있음
-            possible_len.append(i)
-
-    for l in possible_len:                      # 자르기 가능한 길이들만 반복
+    idx = 1
+    while idx <= 8:
         tmp_stack = []
-        
-        for idx in range(0, len(s)-l+1, l):
-            tmp_stack.append(s[idx:idx+l])      # 해당 길이만큼 잘라서 스택에 저장
-        
+        for i in range(0, len(s), idx):
+            if i > len(s)-idx:
+                tmp_stack.append(s[i:])
+                break
+            tmp_stack.append(s[i:i+idx])
+
+        tmp_answer = []
         cnt = 1
-        tmp_answer = ''
-        for idx in range(1, len(tmp_stack)):
-            if tmp_stack[idx-1] == tmp_stack[idx]:
+        for i in range(1, len(tmp_stack)):
+            if tmp_stack[i-1] == tmp_stack[i]:
                 cnt += 1
-            elif tmp_stack[idx-1] != tmp_stack[idx]:
+            elif tmp_stack[i-1] != tmp_stack[i]:
                 if cnt == 1:
-                    tmp_answer += tmp_stack[idx-1]
+                    tmp_answer.append(tmp_stack[i-1])
                 else:
-                    tmp_answer += str(cnt) + tmp_stack[idx-1]
+                    tmp_answer.append(str(cnt) + tmp_stack[i-1])
                 cnt = 1
-            
         if cnt == 1:
-            tmp_answer += tmp_stack[idx-1]
+            tmp_answer.append(tmp_stack[i])
         else:
-            tmp_answer += str(cnt) + tmp_stack[idx-1]
-
-        if answer > len(tmp_answer):
-            answer = len(tmp_answer)
-
+            tmp_answer.append(str(cnt) + tmp_stack[i])
+        
+        tmp_answer_len = len(''.join(tmp_answer))
+        if answer > tmp_answer_len:
+            answer = tmp_answer_len
+        
+        idx += 1
 
     return answer        
 
 
 
-# print(solution("aabbaccc"))                 # 7
-# print(solution("ababcdcdababcdcd"))         # 9
+print(solution("aabbaccc"))                 # 7
+print(solution("ababcdcdababcdcd"))         # 9
 print(solution("abcabcdede"))               # 8
 print(solution("abcabcabcabcdededededede")) # 14
 print(solution("xababcdcdababcdcd"))        # 17
+print(solution('abc'))
