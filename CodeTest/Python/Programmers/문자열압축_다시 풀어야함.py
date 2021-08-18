@@ -51,3 +51,4 @@ print(solution("abcabcdede"))               # 8
 print(solution("abcabcabcabcdededededede")) # 14
 print(solution("xababcdcdababcdcd"))        # 17
 print(solution('abc'))
+print(solution('bababbb'))
