@@ -183,10 +183,10 @@ BFS 는 큐를 이용하여 구현한다.
 ```python
 # 큐를 이용한 구현
 
-from collections import dequeue
+from collections import deque
 
 def bfs_func(start):
-    queue = dequeue([start])								# collections 모듈에서 dequeue 메서드를 이용하여 dequeue 를 사용
+    queue = deque([start])								# collections 모듈에서 deque 메서드를 이용하여 dequeue 를 사용
     visited = [False for _ in range(n+1)]		# 방문 여부를 담는 리스트 변수
     
     while queue:														# 다음으로 진행할 노드가 있을때까지 반복
