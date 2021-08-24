@@ -12,11 +12,25 @@
 import sys
 
 
-# 숫자 연산 통한 풀이
+# 숫자 연산 통한 풀형
 for _ in range(4):
     x1, y1, p1, q1, x2, y2, p2, q2 = map(int, sys.stdin.readline().split())
     
+    if (x1 > p2) or (p1 < x2) or (y1 > q2) or (q1 < y2):                                                            # 공통 부분이 없음
+        answer = 'd'
+    elif (x1 == p2 and y1 == q2) or (x1 == p2 and q1 == y2) or (p1 == x2 and q1 == y2) or (p1 == x2 and y1 == q2):  # 점
+        answer = 'c'
+    elif (x1 == p2) or (y1 == q2) or (p1 == x2) or (q1 == y2):                                                      # 선
+        answer = 'b'
+    else:                                                                                                           # 직사각형
+        answer = 'a'
     
+    print(answer)
+        
+
+
+
+
 
 
 # 2차원 배열 이용한 단순 계산
