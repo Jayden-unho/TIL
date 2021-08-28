@@ -6,7 +6,6 @@
 * [삽입 정렬 (Insertion Sort)](#삽입-정렬-(insertion-sort))
 * [버블 정렬 (Bubble Sort)](#버블-정렬-(bubble-sort))
 * [카운팅 정렬 (Counting Sort)](#카운팅-정렬-(counting-sort))
-* [퀵 정렬 (Quick Sort)](#퀵-정렬-(quick-sort))
 
  <br>
 
@@ -216,12 +215,6 @@ for i in range(length):
   
       return sorted_list
   ```
-
-<br>
-
----
-
-### 퀵 정렬 (Quick Sort)
 
 <br>
 
