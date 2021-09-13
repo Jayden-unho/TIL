@@ -8,7 +8,7 @@
 
 # SQL_DML (Data Manipulation Language)
 
-## 명령어
+## 1️⃣ 명령어
 
 ### FROM
 
@@ -16,7 +16,7 @@
 
 `FROM 테이블명` 형식으로 사용함 
 
-위치 - SELECT, INSERT, DELETE, UPDATE 구 뒤에 나타남
+위치 - SELECT, DELETE, UPDATE 구 뒤에 나타남
 
 <br>
 
@@ -194,13 +194,113 @@ ELSE 생략시 ELSE NULL 이 됨
 * SELECT col_1 FROM table_1;
 * SELECT col_2, col_1, col_3 FROM table_1;
 
+### INSERT
+
+테이블에 행을 추가하는데 사용
+
+`INSERT INTO table_1(col_1, col_2, col_3 ...) VALUES (값1, 값2, 값3 ...)` 형태로 사용 (테이블 명 옆에 열 이름 나열은 생략 가능)
+
+위치 - 문장의 맨 앞에 위치함
+
+<br>
+
+예시)
+
+* INSERT INTO table_1 VALUES ('a', '123', DEFAULT);   -  디폴트는 생략 가능 (생략 안할시 명시적 지정 / 생략시 암묵적 지정)
+
+<br>
+
+### DELETE
+
+테이블에서 행 데이터 삭제
+
+`DELETE FROM table_1 WHERE 조건식` 형태로 사용
+
+위치 - 문장의 맨 앞에 위치함
+
+<br>
+
+예시)
+
+* DELETE FROM table_1;  -  테이블 내 모든 데이터 삭제
+* DELETE FROM table_1 WHERE col_1 = 'time';
+
+<br>
+
+### UPDATE
+
+테이블의 행 데이터 갱신 (수정)
+
+`UPDATE table_1 SET col_1 = 값1 , col_2 = 값2 ... WHERE 조건식` 형태로 사용됨
+
+위치 - 문장의 맨 앞에 위치함
+
+SET 에 지정한 갱신 내용은 WHERE 조건에 해당하는 모든 행에 적용되어 수정 됨
+
+복수의 열을 수정하는 경우 실행 순서가 데이터베이스마다 차이가 존재 (예시3 참고)
+
+<br>
+
+예시)
+
+* UPDATE table_1 SET col_1 = 'test' WHERE col_2 = 30;
+
+* UPDATE table_1 SET col_1 = col_1 + 1;  -  col_1 열의 모든 데이터에 1을 더함
+
+* UPDATE table_1 SET col_1 = col_1 + 1, col_2 = col_1;
+
+  UPDATE table_1 SET col_2 = col_1, col_1 = col_1 + 1;
+
+  MySQL - 두개의 쿼리가 서로 다른 결과 (앞에서부터 순서대로 진행되고, 진행과 동시에 값이 바로바로 저장된다고 생각)
+
+  Oracle - 두개의 쿼리가 서로 같은 결과 (모든 연산을 하고 마지막에 각 결과를 한번에 저장한다고 생각)
+
+<br>
+
+### GROUP BY
+
+같은 데이터를 하나로 묶어 그룹화를 시킬 수 있다.
+
+`SELECT * FROM table_1 GROUP BY col_1, col_2 ...` 형태로 사용됨
+
+위치 - FROM 뒤에 위치
+
+집계함수와 함께 사용됨, 각 그룹이 하나의 집합으로서 집계함수의 인수로 넘겨짐
+
+주의!
+
+* WHERE 과 함께 사용 불가 (GROUP BY 보다 WHERE 가 먼저 실행되어서 조건 사용을 위해서는 그룹화가 우선시 되고 조건을 걸어야함)
+* GROUP BY 로 지정한 열 이외의 열은 집계함수를 사용하지 않은 상태로 SELECT 에 지정하여 조회할 수 없음
+
+<br>
+
+예시)
+
+* SELECT col_1, COUNT(col_1), SUM(col_2) FROM table_1 GROUP BY col_1;
+
+<br>
+
+### HAVING
+
+WHERE 구와 동일하게 조건식 지정 가능
+
+`HAVING 조건식` 형태로 사용
+
+위치 - GROUP BY 뒤에 위치함
+
+<br>
+
+예시)
+
+* SELECT col_1, COUNT(col_1) FROM table_1 GROUP BY col_1 HAVING COUNT(col_1) = 1;
+
 <br>
 
 <br>
 
 ---
 
-## 연산
+## 2️⃣ 연산
 
 열의 값들을 연산하여 새로운 열을 만들어 내거나, 조건을 만들어 낼 수 있다.
 
@@ -323,7 +423,7 @@ NULL 값은 어떤 연산을 하더라도 NULL 이 반환된다.
 
 ---
 
-## 함수
+## 3️⃣ 함수
 
 종류
 
@@ -346,3 +446,56 @@ NULL 값은 어떤 연산을 하더라도 NULL 이 반환된다.
   NULL 값을 변경하는데 사용되는 함수
 
   인자로 열이름, 변경될 값 이 들어간다.
+  
+* COUNT([ALL|DISTINCT] 집합)
+
+  예시)
+
+  * SELECT COUNT(*) FROM table_1;  -  행의 갯수 카운트
+
+  * SELECT COUNT(*) FROM table_1 WHERE col_1 = 1;  -  조건에 해당하는 행의 갯수 카운트
+
+  * SELECT COUNT(col_1) FROM table_1;  -  열의 행 갯수 카운트 (NULL 값이 있으면 갯수 카운트에서 제외됨)
+  * SELECT COUNT(DISTINCT col_1) FROM table_1;  -  위의 상황과 다르게 행의 중복 제거 후 갯수 카운트 (NULL 카운트 제외)
+
+* SUM([ALL|DISTINCT] 집합)
+
+* AVG([ALL|DISTINCT] 집합)
+
+* MIN([ALL|DISTINCT] 집합)
+
+* MAX([ALL|DISTINCT] 집합)
+
+* ALL
+
+  열의 모든 행 출력 (보통 생략하여 사용)
+
+  예시)
+
+  SELECT ALL col_1 FROM table_1;
+
+* DISTINCT
+
+  열의 중복 제거
+
+  예시)
+
+  SELECT DISTINCT col_1 FROM table_1;
+
+* IN(집합)
+
+  열명 IN(집합) - 집합 안의 값이 존재하는지 조사 가능 
+
+  WHERE 조건식과 동일하나 좀더 깔끔하게 표현 가능 (WHERE (col_1 = 3 OR col_1 = 5)) - 아래와 동일한 결과를 반환
+
+  * SELECT * FROM table_1 WHERE col_1 IN (3, 5);
+
+<br>
+
+<br>
+
+---
+
+## 참고
+
+서적 - [SQL 첫걸음](https://book.naver.com/bookdb/book_detail.nhn?bid=9738902)
