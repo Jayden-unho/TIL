@@ -496,6 +496,6 @@ NULL 값은 어떤 연산을 하더라도 NULL 이 반환된다.
 
 ---
 
-## 참고
+## 📖 참고
 
 서적 - [SQL 첫걸음](https://book.naver.com/bookdb/book_detail.nhn?bid=9738902)

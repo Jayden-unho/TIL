@@ -121,6 +121,25 @@ INSERT 에서는 꼭 스칼라 값일 필요는 없다
 
 <br>
 
+## 집합
+
+SELECT 명령을 실행하면 데이터베이스에 질의하여 그 결과 몇개의 행이 반환이 되는데, 이때 반환된 결과 전체를 하나의 집합이라고 생각하면 된다.
+
+#### UNION
+
+합집합 `SELECT UNION SELECT...` 형태로 사용함, 두개의 쿼리 뿐만 아니라 세개의 쿼리도 가능
+
+OREDER BY 사용시에는 마지막 SELECT 에 사용한다.
+
+교집합은 INTERSECT , 차집합은 EXCEPT (Oracle은 MINUS) 을 이용한다.
+
+예시)
+
+* SELECT * FROM table_1 UNION SELECT * FROM table_2;  -  중복값 제거됨
+* SELECT * FROM table_1 UNION ALL SELECT * FROM table_2;  -  중복값 제거되지 않음
+
+<br>
+
 <br>
 
 ---
