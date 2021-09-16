@@ -6,32 +6,17 @@ sys.stdin = open('input.txt')
 T = int(sys.stdin.readline())
 
 for _ in range(T):
-    K = int(sys.stdin.readline())
-    q_min = deque()     # min
-    q_max = deque()     # max
+    command, num = map(str, sys.stdin.readline().split())
+    num = int(num)
 
-    for _ in range(K):
-        command, num = map(str, sys.stdin.readline().split())
-        
-        if not q:
-            if command == 'I':
-                q.append(int(num))
-        elif q:
-            num = int(num)
-            if command == 'I':
-                for idx in range(len(q)):
-                    if q[idx] > num:
-                        q.insert(idx, num)
-                        break
-                    elif idx == len(q) - 1 and q[idx] < num:
-                        q.append(num)
-                        break
-            elif num == -1:
-                q.popleft()
-            elif num == 1:
-                q.pop()
-    
-    if not q:
-        print('EMPTY')
-    else:
-        print(q[-1], q[0])
+    low_q = deque()
+    high_q = deque()
+
+    if not low_q and not high_q and command == 'I':
+        low_q.append(num)
+    elif command == 'I':
+        if not high_q:
+            high_q.append(num)
+        elif low_q[0] > num:
+            low_q.appendleft(num)
+            
