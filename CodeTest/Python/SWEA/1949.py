@@ -10,17 +10,19 @@ def dfs(i, j, k, ans):
         x = j + dc[a]
 
         if 0 <= y < N and 0 <= x < N and not visited[y][x]:
+            visited[y][x] = True
             if mountain[i][j] > mountain[y][x]:
-                visited[y][x] = True
+                # visited[y][x] = True
                 dfs(y, x, k, ans+1)
-                visited[y][x] = False
+                # visited[y][x] = False
             elif k and mountain[i][j] > mountain[y][x] - k:
                 restore = mountain[y][x]
                 mountain[y][x] = mountain[i][j] - 1
-                visited[y][x] = True
+                # visited[y][x] = True
                 dfs(y, x, 0, ans+1)
                 mountain[y][x] = restore 
-                visited[y][x] = False           
+                # visited[y][x] = False 
+            visited[y][x] = False
 
     if answer < ans:
         answer = ans
