@@ -19,22 +19,22 @@ dc = [0, 1, 0, -1]
 def connect_line(y, x, k, num):                 # core 에서 배열 경계까지 라인 추가 / y 좌표, x 좌표, 방향 , 채우는 숫자
     global cnt_line, cnt_core
 
-    # os.system('clear')
-    # print('\n')
-    # for r in range(N):
-    #     for c in range(N):
-    #         if processor[r][c] == 0:
-    #             print('\033[30m \033[42m', processor[r][c], end=' ')
-    #         elif r == pivot[0] and c == pivot[1]:
-    #             print('\033[37m \033[40m', processor[r][c], end=' ')
-    #         elif processor[r][c] == 1:
-    #             print('\033[30m \033[43m', processor[r][c], end=' ')
-    #         else:
-    #             print('\033[30m \033[45m', processor[r][c], end=' ')
+    os.system('clear')
+    print('\n')
+    for r in range(N):
+        for c in range(N):
+            if processor[r][c] == 0:
+                print('\033[30m \033[42m', processor[r][c], end=' ')
+            elif r == pivot[0] and c == pivot[1]:
+                print('\033[37m \033[40m', processor[r][c], end=' ')
+            elif processor[r][c] == 1:
+                print('\033[30m \033[43m', processor[r][c], end=' ')
+            else:
+                print('\033[30m \033[45m', processor[r][c], end=' ')
             
                 
-    #     print()
-    # time.sleep(0.5)
+        print()
+    time.sleep(0.5)
 
     y = y + dr[k]
     x = x + dc[k]
@@ -74,15 +74,15 @@ def restore_line(y, x, k, num):                 # 이전 단계로 복원 / 위�
 
 """ 2 """
 def search(idx):            # 경우의 수 탐색
-    global answer, max_core, cnt_line, cnt_core # , case, pivot 
+    global answer, max_core, cnt_line, cnt_core  , case, pivot 
 
     if cnt_core + (M - idx) < max_core:
         
-        # print(f'\033[30m\033[101m\n!!!!! 백트래킹 !!!!!')
-        # print(f'- 가장 많이 연결된 코어 갯수 : {max_core}')
-        # print(f'- 현재 연결된 코어 갯수 : {cnt_core}')
-        # print(f'- 남은 프로세서 갯수 : {M-idx}')
-        # time.sleep(3)
+        print(f'\033[30m\033[101m\n!!!!! 백트래킹 !!!!!')
+        print(f'- 가장 많이 연결된 코어 갯수 : {max_core}')
+        print(f'- 현재 연결된 코어 갯수 : {cnt_core}')
+        print(f'- 남은 프로세서 갯수 : {M-idx}')
+        time.sleep(3)
 
         return
     elif idx == M:                              # 모든 core 설치했을때
@@ -93,22 +93,22 @@ def search(idx):            # 경우의 수 탐색
         if answer > cnt_line:                # 현재 경우에 전선의 갯수가 더 적으면
             answer = cnt_line                # 정답에 저장
 
-        # case += 1        
-        # print(f'\n------ CASE {case} END ------')
-        # print(f'- 지금까지 가장 많이 연결된 코어 갯수 : {max_core}\n')
-        # print(f'- 현재 연결된 코어 갯수 : {cnt_core}')
+        case += 1        
+        print(f'\n------ CASE {case} END ------')
+        print(f'- 지금까지 가장 많이 연결된 코어 갯수 : {max_core}')
+        print(f'- 현재 연결된 코어 갯수 : {cnt_core}\n')
         
-        # print(f'- 지금까지 가장 적은 전선의 갯수 : {answer}')
-        # print(f'- 현재 전선의 갯수 : {cnt_line}')
+        print(f'- 지금까지 가장 적은 전선의 갯수 : {answer}')
+        print(f'- 현재 전선의 갯수 : {cnt_line}')
 
-        # time.sleep(3)
+        time.sleep(3)
         
         return
             
 
     for k in range(4):      # 위, 오른쪽, 아래, 왼쪽 순으로 방향 진행
         
-        # pivot = (core_li[idx][0], core_li[idx][1])
+        pivot = (core_li[idx][0], core_li[idx][1])
 
         connect_line(core_li[idx][0], core_li[idx][1], k, idx+2)        # 현재 core 전선 연결
         search(idx+1)                                                   # 다음 core 탐색
@@ -123,7 +123,7 @@ for tc in range(1, T+1):
     processor = [list(map(int, input().split())) for _ in range(N)]       # 프로세서 정보
     answer = N * N                                                      # 전선의 갯수 (모든 공간에 전선이 있는 경우)
 
-    # case = 0
+    case = 0
     
     core_li = []                                                        # core 의 좌표값들
     max_core = 0                                                        # 코어 최대 연결 갯수
