@@ -1,18 +1,25 @@
+""" bit masking / powerset /  """
+
 import sys
+sys.stdin = open('input.txt')
 
 
-N = int(sys.stdin.readline())
-s_set, b_set = 1, 1
-s_li = [1]
+N = int(input())
+ingredient = [tuple(map(int, input().split())) for _ in range(N)]
+answer = 1e10
 
-for _ in range(N):
-    S, B = map(int, sys.stdin.readline().split())
 
-    b_set |= (b_set << B)
+for i in range(1, 1 << N):
+    tmp, B = 1, 1
+    for j in range(N):
+        if i & (1 << j):
+            tmp *= ingredient[j][0]
+            B = B << ingredient[j][1]
 
-    for a in s_li:
-        s_set |= (1 << (a * S))
-    s_li.append(S)
+    S = 1 << tmp
+    ans = abs(len(bin(B)) - len(bin(S)))
+    
+    if answer > ans:
+        answer = ans
 
-    print(bin(s_set >> 1))
-    print(bin(b_set >> 1))
+print(answer)
