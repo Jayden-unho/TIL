@@ -1,4 +1,28 @@
-import sys
+"""
+Memory - 37012 KB
+Time - 660 ms
+"""
+
+
+N = int(input())
+dp = [1e6] * (N+1)
+dp[0], dp[1] = 0, 0
+
+for num in range(2, N+1):
+    if not num%3:                   # 3으로 나누어 떨어지면
+        dp[num] = dp[num//3] + 1      # 우선 3으로 나눈 인덱스 값에서 +1 추가
+
+    if not num%2:                       # 2 나누어 떨어지면
+        if dp[num] > dp[num//2] + 1:      # 지금 저장된거보다 더 최솟값이면 변경
+            dp[num] = dp[num//2] + 1
+
+    if dp[num] > dp[num-1] + 1:       # 1 뺀게 더 최솟값이면 변경
+        dp[num] = dp[num-1] + 1
+
+print(dp[N])
+
+
+""" import sys
 
 
 '''
@@ -38,4 +62,4 @@ for n in range(2, num+1):
     # 가장 작은 횟수를 저장
     num_list[n] = min
 
-print(num_list[num])
+print(num_list[num]) """
