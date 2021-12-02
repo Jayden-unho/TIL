@@ -1,21 +1,26 @@
+"""
+다익스트라
+"""
 import heapq
 
-
 def dijkstra(start, end, linked_start, linked_end, traps, distance):
-    heap = [(0, start)]
+    heap = [(0, start, linked_start, linked_end)]
 
     while not distance[end]:
-        print(heap)
         node = heapq.heappop(heap)
         distance[node[1]] = node[0]
 
         if node[1] in traps:
-            for e in linked_start[node[1]]:
-                linked_end[e[1]].append((e[0], node[1]))
-            linked_start[node[1]].clear()
+            tmp_start = node[2][node[1]][:]
+            tmp_end = node[3][node[1]][:]
+            node[2][node[1]].clear()
+            node[3][node[1]].clear()
+            
+            node[2][node[1]].extend(tmp_end)
+            node[3][node[1]].extend(tmp_start)
 
-        for e in linked_start[node[1]]:
-            heapq.heappush(heap, (distance[node[1]] + e[0], e[1]))
+        for e in node[2][node[1]]:
+            heapq.heappush(heap, (distance[node[1]] + e[0], e[1], node[2], node[3]))
     
     return distance[end]
 
