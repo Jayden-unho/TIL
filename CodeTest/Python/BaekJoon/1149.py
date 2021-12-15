@@ -2,22 +2,19 @@ import sys
 sys.stdin = open('input.txt')
 
 N = int(sys.stdin.readline())
-li = []
-dp = [[-1, -1] for _ in range(N)]
-idx = [-1] * N
+li = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
 
-for _ in range(N):
-    r, g, b = map(int, sys.stdin.readline().split())
-    li.append((r, g, b))
+dp_R = [-1] * N             # 현재 위치에서 빨간색 선택한 경우 최솟값
+dp_G = [-1] * N             # 초록색 선택한 경우 최솟값
+dp_B = [-1] * N             # 파란색 선택한 경우 최솟값
 
-tmp_v = min(li[0])
-tmp_idx = li[0].index(tmp_v)
-dp[0] = [tmp_v, tmp_idx]
+dp_R[0] = li[0][0]          # 첫번째 값 추가
+dp_G[0] = li[0][1]
+dp_B[0] = li[0][2]
 
 for i in range(1, N):
-    pre_idx = dp[i-1][1]
-    first = dp[i-1][0] + min(li[i][(pre_idx+1)%3], li[i][(pre_idx+2)%3])
-    
-    second_v = min(li[i])
-    second_idx = li[i].index(second_v)
-    second = second_v + min(li[i-1][(second_idx+1)%3], li[i-1][(second_idx+2)%3])
+    dp_R[i] = min(dp_G[i-1] + li[i][0], dp_B[i-1] + li[i][0])   # 이전에 다른 색을 골라야하므로
+    dp_G[i] = min(dp_R[i-1] + li[i][1], dp_B[i-1] + li[i][1])   # ex) 현재 빨간색 선택시 이전에 초록 파랑 선택한 최솟값에서
+    dp_B[i] = min(dp_R[i-1] + li[i][2], dp_G[i-1] + li[i][2])   # 현재 빨간색 선택한걸 더한거에서 최솟값을 구함
+
+print(min(dp_R[N-1], dp_G[N-1], dp_B[N-1]))
