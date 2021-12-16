@@ -20,6 +20,19 @@ for i in range(1, N+1):
 print(dp[N][K])
 
 
+# import sys
+
+# N, K = map(int, sys.stdin.readline().split())
+# dp = {0:0}
+# for i in range(N):
+#     w, v = map(int, sys.stdin.readline().split())
+#     tmp = {}
+#     for value, weight in dp.items():
+#         nw, nv = w + weight, v + value
+#         if nw < dp.get(nv, K+1):
+#             tmp[nv] = nw
+#     dp.update(tmp)
+
 
 """
 DFS 이용한 탐색 (시간초과)
