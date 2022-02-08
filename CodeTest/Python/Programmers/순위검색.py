@@ -1,23 +1,37 @@
+from itertools import combinations
+
 def solution(infos, query):
-    answer = []
-    people = {}
+    answer = []                 # 정답 리스트
+    people = {}                 # 선택한 항목별 점수를 저장할 딕셔너리
 
     for info in infos:
-        tmp = info.split(' ')
-        
-        people[tmp[0]] = people.get(tmp[0], {})
-        people[tmp[0]][tmp[1]] = people[tmp[0]].get(tmp[1], {})
-        people[tmp[0]][tmp[1]][tmp[2]] = people[tmp[0]][tmp[1]].get(tmp[2], {})
-        people[tmp[0]][tmp[1]][tmp[2]][tmp[3]] = people[tmp[0]][tmp[1]][tmp[2]].get(tmp[3], []) + [tmp[4]]
+        info = info.split(' ')  # 입력으로 주어지는 정보들을 사용하기 편리하게 분리
+
+        for k in range(5):                          # 추후에 쿼리를 통해 정보를 찾을때 - 기호가 들어가므로
+            for comb in combinations(range(4), k):  # 조합을 이용하여 어느 인덱스에 - 기호를 넣을지 구분
+                tmp = []
+
+                for idx in range(4):
+                    if idx in comb:                 # 현재 인덱스에 - 기호가 들어가야 하는 경우
+                        tmp.append('-')
+                    else:                           # 현재 인덱스에 - 기호가 들어가지 않는 경우
+                        tmp.append(info[idx])
+                
+                people[' '.join(tmp)] = people.get(' '.join(tmp), []) + [int(info[-1])]     # 딕셔너리에 현재 지원자의 점수 추가
 
     for q in query:
-        tmp_answer = 0
-        tmp = q.split(' and ')
-        tmp += tmp.pop().split(' ')
+        q = q.split(' and ')
+        q.extend(q.pop().split(' '))
+        scores = sorted(people.get(' '.join(q[:4]), {}), reverse=True)      # 찾으려는 선택 사항의 키값에 해당하는 점수들을 모두 가져옴
+        
+        cnt = 0                         # 쿼리문의 점수 이상이 몇개인지 카운트
+        for score in scores:
+            if score >= int(q[-1]):
+                cnt += 1
+            else:
+                break
 
-        for e in tmp:
-            if e != '-':
-                
+        answer.append(cnt)
 
     return answer
 
