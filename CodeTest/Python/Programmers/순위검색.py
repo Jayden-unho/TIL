@@ -17,12 +17,11 @@ def solution(infos, query):
                     else:                           # 현재 인덱스에 - 기호가 들어가지 않는 경우
                         tmp.append(info[idx])
                 
-                people[' '.join(tmp)] = people.get(' '.join(tmp), []) + [int(info[-1])]     # 딕셔너리에 현재 지원자의 점수 추가
+                people[' '.join(tmp)] = sorted(people.get(' '.join(tmp), []) + [int(info[-1])], reverse=True)     # 딕셔너리에 현재 지원자의 점수 추가
 
     for q in query:
-        q = q.split(' and ')
-        q.extend(q.pop().split(' '))
-        scores = sorted(people.get(' '.join(q[:4]), {}), reverse=True)      # 찾으려는 선택 사항의 키값에 해당하는 점수들을 모두 가져옴
+        q = q.split(' ')
+        scores = people.get(' '.join(q[:7:2]), {})      # 찾으려는 선택 사항의 키값에 해당하는 점수들을 모두 가져옴
         
         cnt = 0                         # 쿼리문의 점수 이상이 몇개인지 카운트
         for score in scores:
