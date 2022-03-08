@@ -19,7 +19,7 @@
 
 * 로직
 
-  ![Selection_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/selection_sort.gif)
+  ![Selection_Sort](../../Image.assets/Algorithm/selection_sort.gif)
 
   1. 정렬 되지 않은 인덱스의 맨 앞에서부터 이를 포함한 그 이후의 배열값 중 가장 작은 값을 찾아간다.
   2. 가장 작은 값을 찾으면, 그 값을 현재 인덱스의 값과 바꾼다
@@ -70,7 +70,7 @@
 
 * 로직
 
-  ![Insertion_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/insertion_sort.gif)
+  ![Insertion_Sort](../../Image.assets/Algorithm/insertion_sort.gif)
 
   1. 삽입정렬은 두번째 인덱스부터 시작함. 현재 인덱스는 별도의 변수에 저장해주고, 비교 인덱스를 현재 인덱스-1 로 설정한다.
   2. 별도로 저장해 둔 삽입을 위한 변수와 비교 인덱스의 배열 값을 비교
@@ -126,7 +126,7 @@ for i in range(1, len(num_list)):
 
 * 로직
 
-  ![Bubble_Sort](../../Image.assets/Algorithm_&_Solution/Algorithm/bubble_sort.gif)
+  ![Bubble_Sort](../../Image.assets/Algorithm/bubble_sort.gif)
 
   1. 두개의 인덱스가 하나의 쌍이 되어 움직인다. 현재 인덱스 값과 바로 이전의 인덱스 값을 비교한다.
   2. 만약 이전 인덱스가 더 크면, 현재 인덱스와 바꿔준다.
@@ -171,7 +171,7 @@ for i in range(length):
 
 * 로직
 
-  ![](../../Image.assets/Algorithm_&_Solution/Algorithm/counting_sort.gif)
+  ![](../../Image.assets/Algorithm/counting_sort.gif)
 
 <br>
 

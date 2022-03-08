@@ -8,7 +8,7 @@
 
 ## 로직
 
-![Binary_Search01](../../Image.assets/Algorithm_&_Solution/Algorithm/Binary_Search01.png)
+![Binary_Search01](../../Image.assets/Algorithm/Binary_Search01.png)
 
  
 
