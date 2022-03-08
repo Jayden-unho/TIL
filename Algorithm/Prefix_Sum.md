@@ -43,7 +43,7 @@
 
 2차원 배열에서 4개의 모서리의 좌표값을 알아내고, 그 좌표에 변화하는 값을 추가해준다.
 
-![](/Users/leeunho/Desktop/TIL/Image.assets/Algorithm/accumulate_sum.png)
+![](../Image.assets/Algorithm/accumulate_sum.png)
 
 이미지 출처 - 하단 참고 [노션1](https://driip.me/65d9b58c-bf02-44bf-8fba-54d394ed21e0)
 

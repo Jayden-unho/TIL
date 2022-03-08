@@ -20,7 +20,7 @@ BFS와 DFS는 그래프를 탐색하는 방법이다.
 
 #### 이미지
 
-![](../../Image.assets/Algorithm/tree_image.png)
+![](../Image.assets/Algorithm/tree_image.png)
 
 <br>
 
@@ -59,7 +59,7 @@ BFS와 DFS는 그래프를 탐색하는 방법이다.
 
 #### 이미지
 
-![](../../Image.assets/Algorithm/graph_image.png)
+![](../Image.assets/Algorithm/graph_image.png)
 
 <br>
 
@@ -113,7 +113,7 @@ DFS는 완전 탐색으로 그래프의 모든 노드들을 탐색하게 된다.
 
 #### 이미지
 
-![](../../Image.assets/Algorithm/DFS.gif)
+![](../Image.assets/Algorithm/DFS.gif)
 
 <br>
 
@@ -172,7 +172,7 @@ def dfs_func(start):
 
 #### 이미지
 
-![](../../Image.assets/Algorithm/BFS.gif)
+![](../Image.assets/Algorithm/BFS.gif)
 
 <br>
 
