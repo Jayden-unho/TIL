@@ -1,0 +1,22 @@
+.login {
+  width: 288px;
+  height: 48px;
+  background-color: #34C759;
+  color: black;
+  margin: 20px 0;
+}
+
+.create {
+  width: 84px;
+  height: 48px;
+  background-color: #0F62FE;
+  border-radius: 20px;
+  border: 0;
+  color: white;
+  font-weight: 500;
+  box-shadow: 3px 3px 15px 0px #e9e1e1;
+}
+
+.create:hover {
+  background-color: #0F56DB;
+}
