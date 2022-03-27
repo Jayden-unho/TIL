@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import styles from '../../styles/loginInput.module.css'
+import styles from './loginInput.module.css'
 
 export default function LoginInput({ id, password, onChange }) {
   return (

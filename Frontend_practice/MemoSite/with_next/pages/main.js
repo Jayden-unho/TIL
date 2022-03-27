@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-
 import Create from '../containers/create/create'
-import { getStorage, setStorage } from '../lib/storage'
+import Memos from '../containers/memos/memos'
+
+import { getStorage, setStorage } from '../modules/storage'
 import styles from '../styles/main.module.css'
 
 export default function Main({ identification }) {
@@ -23,6 +24,7 @@ export default function Main({ identification }) {
     } else {
       setStorage(username, [...memos, memo])
       setMemos(getStorage(username))
+      setMemo({ title: '', content: '' })
     }
   }
 
@@ -42,8 +44,8 @@ export default function Main({ identification }) {
       <section className={styles.create__container}>
         <Create memo={memo} onChange={memoChange} saveMemo={saveMemo}/>
       </section>
-      <section>
-        <p>메모 조회하는 곳</p>
+      <section className={styles.memos__container}>
+        <Memos memos={memos}/>
       </section>
     </main>
   )

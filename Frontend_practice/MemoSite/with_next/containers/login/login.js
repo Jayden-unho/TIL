@@ -2,17 +2,18 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import LoginInput from '../../components/inputs/loginInput'
 import Button from '../../components/buttons/button'
-import { setStorage, getStorage } from '../../lib/storage'
-import styles from '../../styles/login.module.css'
+
+import { setStorage, getStorage } from '../../modules/storage'
+import styles from './login.module.css'
 
 export default function Login({ identification, changeIdentification }) {
   const router = useRouter()
 
   const localLogin = () => {
-    const value = getStorage(identification.id + identification.password)
+    const value = getStorage(identification.id)
 
     if (value === null) {
-      setStorage(identification.id + identification.password, '')
+      setStorage(identification.id, '')
     }
 
     router.push({ pathname: '/main' })
@@ -25,7 +26,6 @@ export default function Login({ identification, changeIdentification }) {
   return (
     <div className={styles.container}>
       <LoginInput id onChange={changeIdentification}></LoginInput>
-      <LoginInput password onChange={changeIdentification}></LoginInput>
       <Button
         login
         text="로컬 로그인"

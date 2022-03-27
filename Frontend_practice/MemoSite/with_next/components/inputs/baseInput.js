@@ -1,11 +1,12 @@
-import styles from '../../styles/baseInput.module.css'
+import styles from './baseInput.module.css'
 
-export default function BaseInput({ title, content, search, onChange }) {
+export default function BaseInput({ title, content, search, onChange, value }) {
   return (
     <>
       {
         title
         ? <input
+            value={value}
             onChange={onChange}
             data-type='title'
             className={styles.input}
@@ -14,6 +15,7 @@ export default function BaseInput({ title, content, search, onChange }) {
           />
         : content
         ? <textarea
+            value={value}
             onChange={onChange}
             data-type='content'
             className={styles.input}
@@ -21,6 +23,7 @@ export default function BaseInput({ title, content, search, onChange }) {
           />
         : search
         ? <input
+            value={value}
             onChange={onChange}
             data-type='search'
             className={styles.input}

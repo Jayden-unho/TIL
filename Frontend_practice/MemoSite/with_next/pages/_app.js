@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  const [status, setStatus] = useState({identification: { id: '', password: '' }})
+  const [status, setStatus] = useState({identification: { id: '' }})
 
   const changeIdentification = (event) => {
     setStatus({

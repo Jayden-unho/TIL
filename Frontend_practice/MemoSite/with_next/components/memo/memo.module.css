@@ -1,0 +1,12 @@
+.container {
+  width: 177px;
+  height: 170px;
+  padding: 20px 15px;
+  background-color: white;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+.title {
+  font-weight: 700;
+}
