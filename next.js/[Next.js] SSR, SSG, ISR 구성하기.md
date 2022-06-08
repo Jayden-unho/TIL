@@ -1,4 +1,4 @@
-# [Next.js] SSR, SSG, ISR 활용하기
+# [Next.js] SSR, SSG, ISR 구성하기
 
 이전 포스트를 통해 Next.js 에서 `SSR(Server Side Rendering)` 과 `SSG(Static Site Generation)`의 방식으로 페이지를 생성하는 방법에 대해 다루었습니다.\
 이번 포스트에서는 SSR, SSG 과 함께 추가적으로 `ISR(Incremental Static Regeneration)`도 함께 다루어보겠습니다.
