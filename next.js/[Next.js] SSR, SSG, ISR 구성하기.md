@@ -351,4 +351,4 @@ function Home({ staticState, changeStaticState }) {
 
 ## :books: 참고
 
-- 공식문서 - <a href="https://nextjs.org/docs/routing/introduction" target="_blank">Routing</a>
+- 공식문서 - <a href="https://nextjs.org/docs/basic-features/data-fetching/overview" target="_blank">Data Fetching Overview</a>
