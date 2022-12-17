@@ -1,24 +1,23 @@
 import sys
+from functools import reduce
 sys.stdin = open('input.txt')
 
+
+def register_word(prev: set, curr: set) -> set:
+    # 각 집합 내의 요소들에서 2글자 이상들만 서로 합치는 함수
+    return prev | set(filter(lambda x: len(x) >= 2, curr))
+
+
+# 행, 열
 R, C = map(int, sys.stdin.readline().split())
+rows = [sys.stdin.readline().rstrip() for _ in range(R)]
+cols = list(map(lambda x: ''.join(x), zip(*rows)))
 
-tables = [sys.stdin.readline().rstrip() for _ in range(R)]
-
-words = set()
-for r in range(R):
-    row = tables[r].split('#')
-
-    for word in row:
-        if (len(word) >= 2):
-            words.add(word)
-
-for c in range(C):
-    col = ''.join([tables[r][c] for r in range(R)]).split('#')
-
-    for word in col:
-        if (len(word) >= 2):
-            words.add(word)
-
+# '#' 을 기준으로 단어 구분, 중복 제거를 위해 집합 사용
+words_li = map(lambda x: set(x.split('#')), rows + cols)
+# 단어가 2자리 이상만, 걸러서 하나의 집합으로 합치기
+words = reduce(register_word, words_li, set())
+# 사전순 정렬
 answer = sorted(words)[0]
+
 print(answer)
