@@ -10,6 +10,8 @@ def sol():
         weight, node, remain = heapq.heappop(h)
         if weights[node] <= weight:
             continue
+        if node == B:
+            return weight
 
         weights[node] = weight
         for next_weight, next_node in linked[node]:
@@ -17,6 +19,8 @@ def sol():
             next_remain = remain - next_weight
             if next_remain >= 0 and weights[next_node] > max_weight:
                 heapq.heappush(h, (max_weight, next_node, next_remain))
+
+    return -1
 
 
 N, M, A, B, C = map(int, sys.stdin.readline().split())
@@ -28,6 +32,4 @@ for _ in range(M):
     linked[S].append((W, E))
     linked[E].append((W, S))
 
-sol()
-
-print(-1 if weights[B] == 1e10 else weights[B])
+print(sol())
