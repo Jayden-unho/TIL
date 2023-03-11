@@ -61,33 +61,3 @@ wins = [0, 0, 0]  # 게임 진행 중 몇 번 승리인지 카운트
 sol((0, 1), set())
 
 print(answer)
-
-
-#######################
-# def recursion(cb):
-#     winner = l if infos[left][right] == 2 else r
-#     wins[winner] += 1
-#     cb(winner)
-#     wins[winner] -= 1
-
-# if left:
-#     recursion(lambda winner: sol(other | {winner}, selected))
-# else:
-#     for left in range(N):
-#         if left not in selected:
-#             recursion(lambda winner: sol(
-#                 other | {winner}, selected | {left}))
-
-#    if l:  # 경희 vs 민호
-#         winner = l if infos[left][right] == 2 else r
-#         wins[winner] += 1
-#         sol(other | {winner}, selected)
-#         wins[winner] -= 1
-#     else:  # 진우 vs 경희 또는 민호
-#         for left in range(N):
-#             # 지우가 이전에 내지 않은 손동작인 경우
-#             if left not in selected:
-#                 winner = l if infos[left][right] == 2 else r
-#                 wins[winner] += 1
-#                 sol(other | {winner}, selected | {left})
-#                 wins[winner] -= 1
